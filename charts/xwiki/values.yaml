@@ -49,28 +49,23 @@ javaOpts: []
 
 # Secrets for any given Java option
 javaOptsSecrets:
-  # The option will be included in the environment variable JAVA_OPTS and is mandatory.
-  # The following example will create and include -Djavax.net.ssl.trustStorePassword=${TRUSTSTOREPASSWORD} in the JAVA_OPTS environment variable
-  # trustStorePassword:
-  #   option: "-Djavax.net.ssl.trustStorePassword="
-  #   # -- Superadmin password as plain value (fallback if no secret exists inside of Kubernetes).
-  #   value: "testvalue"
-  #   # Superadmin password from existing secret (higher precedence than plain value)
-  #   secret:
-  #     # -- Name of the Kubernetes secret that contains the superadmin password
-  #     name: "secretname"
-  #     # -- Key inside the Kubernetes secret that contains the superadmin password
-  #     key: "keyinsecret"
+#     key: "keyinsecret"
 
 extraEnvVars: []
 #  - name: FOO
 #    value: "bar"
 
 # Optionally specify an extra list of additional volumes.
-extraVolumes: []
+# Optionally specify an extra list of additional volumes.
+extraVolumes:
+  - name: xwiki-additional-storage
+    persistentVolumeClaim:
+      claimName: xwiki-additional-pvc
 
 # Optionally specify an extra list of additional volumeMounts.
-extraVolumeMounts: []
+extraVolumeMounts:
+  - name: xwiki-additional-storage
+    mountPath: /usr/local/xwiki/data/additional-data  # Change this to your desired mount path
 
 # Enable to choose witch kind of workload will be used: (true) StatefulSet or (false) for Deployment
 workloadStateful: true
@@ -460,45 +455,19 @@ hostAliases: []
 #    - "foo.remote"
 #    - "bar.remote"
 
-# Allow to disable configurations files in data directory.
-# By default, helm will copy configuration files from image to have always
-# most up-to-date configuration files.
 overrideDataConfigs: true
 
 # Custom configuration files for xwiki
 customConfigs:
-  # Properties key that exists, replace in line is done with value here defined.
-  # If key don't exists, this key and value will be appended in that specific file.
-  # This files are list of key: value that are translated as key=value in that file.
-  # xwiki.cfg:
-    #
-  # xwiki.properties:
-    #
+#
 
 # Secrets for custom configuration files for xwiki
 customConfigsSecrets:
-  # Properties key that exists, replace in line is done with value here defined.
-  # If key don't exists, this key and value will be appended in that specific file.
-  # The following example will set xwiki.superadminpassword in the file xwiki.cfg
-  # xwiki.cfg:
-  #   xwiki.superadminpassword:
-  #     # -- Superadmin password as plain value (fallback if no secret exists inside of Kubernetes).
-  #     value: "testvalue"
-  #     # Superadmin password from existing secret (higher precedence than plain value)
-  #     secret:
-  #       # -- Name of the Kubernetes secret that contains the superadmin password
-  #       name: "secretname"
-  #       # -- Key inside the Kubernetes secret that contains the superadmin password
-  #       key: "keyinsecret"
+
 
 # Properties to be passed to Java process with -D parameters using JAVA_OPTS
 properties:
   # "key": "value"
-
-# Name of a secret that contains a file listing properties and their value separated by '=' line by line.
-# Those values will be prefixed by '-D' and depending on the used software/version appended to the environment
-# variable 'JAVA_OPTS' or a file that holds properties and get loaded later on.
-# The following example shows a single line how it is expected to be formatted:
 # property:xwiki:Mail.MailConfig^Mail.SendMailConfigClass.password="<password>"
 propertiesSecret:
   # -- Name of the Kubernetes secret that contains the properties file
@@ -540,16 +509,7 @@ glowroot:
 logback:
   enabled: false
 #  customConfiguration: |
-#    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
-#      <!-- Direct log messages to stdout -->
-#      <Target>System.out</Target>
-#      <encoder>
-#        <pattern>%d [%t] %-5p %-30.30c{2} - %m %n</pattern>
-#      </encoder>
-#    </appender>
-#  extraConfiguration: |
-#    <logger name="org.xwiki" level="debug"/>
-#    <logger name="com.xwiki" level="debug"/>
+
 
 # Enable Autoscaling for the xwiki deployment/statefullSet:
 # https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/
