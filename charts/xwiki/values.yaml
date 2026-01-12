@@ -15,7 +15,7 @@ cluster:
 commonAnnotations: {}
 
 image:
-  name: xwiki:15.10.11-mariadb-tomcat
+  name: xwiki
   pullPolicy: IfNotPresent
 ## Image Tag useful when externalDB is been used
   tag: ''
@@ -162,7 +162,7 @@ mariadb:
   enabled: true
   image:
     # Temporary solution for https://jira.xwiki.org/browse/HELM-103
-    repository: mariadb:11.4.9
+    repository: mariadb
   auth:
     rootPassword: "xwiki"
     username: "xwiki"
