@@ -15,7 +15,7 @@ cluster:
 commonAnnotations: {}
 
 image:
-  name: xwiki
+  name: xwiki:16.10.15-mariadb-tomcat
   pullPolicy: IfNotPresent
 ## Image Tag useful when externalDB is been used
   tag: ''
