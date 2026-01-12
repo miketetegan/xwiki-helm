@@ -308,7 +308,7 @@ solr:
   persistence:
     enabled: true
     existingClaim: ""
-    storageClass: ""
+    storageClass: "nfs-client"
     accessModes:
       - ReadWriteOnce
     size: "500Mi"
