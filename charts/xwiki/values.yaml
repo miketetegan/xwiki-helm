@@ -397,7 +397,7 @@ istio:
 persistence:
   enabled: true
   existingClaim: ""
-  storageClass: "local-path"
+  storageClass: ""
   accessModes:
     - ReadWriteOnce
   size: "10Gi"
