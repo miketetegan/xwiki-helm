@@ -162,7 +162,7 @@ mariadb:
   enabled: true
   image:
     # Temporary solution for https://jira.xwiki.org/browse/HELM-103
-    repository: mariadb
+    repository: mariadb:11.4.9
   auth:
     rootPassword: "xwiki"
     username: "xwiki"
