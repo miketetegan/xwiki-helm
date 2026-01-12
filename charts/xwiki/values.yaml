@@ -48,7 +48,7 @@ javaOpts: []
 #  - "-Xmx1024m"
 
 # Secrets for any given Java option
-javaOptsSecrets:
+#javaOptsSecrets:
 #     key: "keyinsecret"
 
 extraEnvVars: []
