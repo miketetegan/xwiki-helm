@@ -38,6 +38,9 @@ resources: {}
 customJdbc:
   enabled: false
 
+propertiesSecret:
+  name: ""
+
 javaOpts:
   -  "-Xms8g -Xmx16g"
 extraEnvVars: []
