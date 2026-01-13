@@ -159,7 +159,7 @@ mysql:
 ##
 mariadb:
  ## Whether to deploy a mysql server. Set false for a different database.
-  enabled: true
+  enabled: false
   image:
     # Temporary solution for https://jira.xwiki.org/browse/HELM-103
     repository: bitnamilegacy/mariadb
@@ -255,16 +255,16 @@ postgresql:
 ##
 externalDB:
   password: ''
-  user: ''
-  database: ''
-  host: ''
+  user: 'xwikidbadmin'
+  database: 'xwiki-db'
+  host: 'lhw-xwiki-db.monitoring-prod.svc.cluster.local'
   # To set if database init containers are enabled, supported values are mysql, postgresql, mariadb
   type: ''
   # If set to true default secret will not be created, use custom secret
   customKeyRef:
-    enabled: false
-    name: ''
-    key: ''
+    enabled: true
+    name: 'lhw-xwiki-db-secrets'
+    key: 'xwikidbadmin-password'
 
 ##
 ## To use external solr enable solr, provide host and port
