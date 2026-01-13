@@ -259,7 +259,7 @@ externalDB:
   database: 'xwiki'
   host: 'lhw-xwiki-db.monitoring-prod.svc.cluster.local'
   # To set if database init containers are enabled, supported values are mysql, postgresql, mariadb
-  type: ''
+  type: 'mariadb'
   # If set to true default secret will not be created, use custom secret
   customKeyRef:
     enabled: true
