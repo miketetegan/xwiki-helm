@@ -46,6 +46,7 @@ podAnnotations: {}
 
 javaOpts:
   - "-Xmx1024m"
+  - "-Dhibernate.dialect=org.hibernate.dialect.MariaDB103Dialect"
 
 # Secrets for any given Java option
 #javaOptsSecrets:
