@@ -45,7 +45,7 @@ resources: {}
 podAnnotations: {}
 
 javaOpts: []
-#  - "-Xmx1024m"
+  - "-Xmx1024m"
 
 # Secrets for any given Java option
 #javaOptsSecrets:
