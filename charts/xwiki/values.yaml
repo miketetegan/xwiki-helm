@@ -35,6 +35,9 @@ resources: {}
 #    cpu: 500m
 #    memory: 768Mi
 
+customJdbc:
+  enabled: false
+
 javaOpts:
   -  "-Xms8g -Xmx16g"
 extraEnvVars: []
