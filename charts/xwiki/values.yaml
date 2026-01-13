@@ -468,6 +468,7 @@ customConfigsSecrets:
 
 # Properties to be passed to Java process with -D parameters using JAVA_OPTS
 properties:
+  "hibernate.dialect": "org.hibernate.dialect.MariaDB103Dialect"
   # "key": "value"
 # property:xwiki:Mail.MailConfig^Mail.SendMailConfigClass.password="<password>"
 propertiesSecret:
