@@ -55,7 +55,7 @@ extraVolumes:
 # Optionally specify an extra list of additional volumeMounts.
 extraVolumeMounts:
   - name: nfs-storage-vol
-    mountPath: /usr/local/xwiki/data/repository/storage
+    mountPath: /tmp/repository/storage
 
 # Enable to choose witch kind of workload will be used: (true) StatefulSet or (false) for Deployment
 workloadStateful: true
