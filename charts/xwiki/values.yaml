@@ -45,7 +45,7 @@ extraEnvVars: []
 extraVolumes: 
   - name: nfs-storage-vol
     persistentVolumeClaim:
-        claimName: xwiki-nfs-pvc
+      claimName: xwiki-nfs-pvc
 # Optionally specify an extra list of additional volumeMounts.
 extraVolumeMounts:
   - name: nfs-storage-vol
