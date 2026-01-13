@@ -256,7 +256,7 @@ postgresql:
 externalDB:
   password: ''
   user: 'xwikidbadmin'
-  database: 'xwiki-db'
+  database: 'xwiki'
   host: 'lhw-xwiki-db.monitoring-prod.svc.cluster.local'
   # To set if database init containers are enabled, supported values are mysql, postgresql, mariadb
   type: ''
