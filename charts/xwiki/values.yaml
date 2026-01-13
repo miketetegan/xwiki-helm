@@ -294,7 +294,7 @@ persistence:
   storageClass: "local-path"
   accessModes:
     - ReadWriteOnce
-  size: "10"
+  size: "10Gi"
   annotations: {}
   labels: {}
   selector: {}
